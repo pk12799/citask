@@ -7,8 +7,8 @@ class Login extends CI_Controller
     {
         //htis->load->library('form_validation');
         $this->load->view('login');
-        //$this->load->view('nav');
     }
+
 
     public function getUser()
     {

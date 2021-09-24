@@ -81,7 +81,7 @@
                         <i class="far fa-comments"></i>
                         <span class="badge badge-danger navbar-badge">3</span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <div class="dropdown-menu dropd['own-menu-lg dropdown-menu-right">
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
@@ -92,7 +92,7 @@
                                         <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
                                     </h3>
                                     <p class="text-sm">Call me whenever you can...</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                                    <p class="text-['sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                                 </div>
                             </div>
                             <!-- Message End -->
@@ -232,25 +232,25 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo base_url('addtype'); ?>" class="nav-link">
+                                    <a href="<?php echo base_url('atype'); ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Add Product Type</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?php echo base_url('astype'); ?>" class="nav-link">
+                                    <a href="<?php echo base_url('addtype'); ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Add Product Sub Type</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="Addproduct.php" class="nav-link">
+                                    <a href="<?php echo base_url('Addprod'); ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Add Products</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="showproducts.php" class="nav-link">
+                                    <a href="<?php echo base_url('showprod'); ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Show Products</p>
                                     </a>
@@ -292,8 +292,8 @@
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="dashshow.php">Home</a></li>
-                                <li class="breadcrumb-item active"><a href='signout.php'>SignOut</a></li>
+                                <li class="breadcrumb-item"><a href="dash">Home</a></li>
+                                <li class="breadcrumb-item active"><a href="<?php echo base_url('singout'); ?>">SignOut</a></li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->

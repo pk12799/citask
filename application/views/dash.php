@@ -5,7 +5,9 @@ if ($this->session->login != TRUE) {
 
 
 ?>
-
+<?php
+$this->load->view('nav');
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,9 +21,7 @@ if ($this->session->login != TRUE) {
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-    <?php
-    $this->load->view('nav');
-    ?>
+
 
     <!-- Main content -->
     <section class="content">
@@ -32,7 +32,7 @@ if ($this->session->login != TRUE) {
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-
+                            <h3> <?php echo $product; ?></h3>
 
                             <p>Total Products</p>
                         </div>
@@ -51,7 +51,7 @@ if ($this->session->login != TRUE) {
                         <div class="inner">
 
 
-                            <h3></h3>
+                            <h3><?php echo $users; ?></h3>
 
                             <p>Admin</p>
                         </div>
@@ -67,7 +67,7 @@ if ($this->session->login != TRUE) {
                     <div class="small-box bg-danger">
                         <div class="inner">
 
-
+                            <h3><?php echo $type; ?></h3>
                             <p>Product Type</p>
                         </div>
                         <div class="icon">
@@ -76,27 +76,23 @@ if ($this->session->login != TRUE) {
                         <a href="3" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-primary">
+                        <div class="inner">
+
+                            <h3><?php echo $subtype; ?></h3>
+                            <p>Product sub Type</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-ribbon-b"></i>
+                        </div>
+                        <a href="3" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
                 <!-- ./col -->
             </div>
-            <!-- /.row -->
-            <!-- Main row -->
 
-            <!-- /.card -->
-
-            <!-- DIRECT CHAT -->
-
-
-
-            <!-- Contacts are loaded here -->
-
-            <!--/.direct-chat -->
-
-            <!-- TO DO List -->
-
-            <!-- /.Left col -->
-            <!-- right col (We are only adding the ID to make the widgets sortable)-->
-
-            <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
 
@@ -107,11 +103,7 @@ if ($this->session->login != TRUE) {
         </aside>
         <!-- /.control-sidebar -->
         </div>
-        <!-- ./wrapper -->
 
-        <!-- jQuery -->
-
-        <!-- Bootstrap 4 -->
 
 </body>
 

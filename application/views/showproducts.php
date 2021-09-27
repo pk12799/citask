@@ -1,14 +1,13 @@
 <?php
 
-$this->load->view('nav');
-$total_prod = $count;
-// print_r($total_prod);
-// exit;
-$require = 3;
-if ($total_prod > $require) {
-    $total_no_of_pages = $total_prod / $require;
-    
+if ($this->session->login != TRUE) {
+    redirect(base_url());
 }
+
+
+
+$this->load->view('nav');
+
 
 ?>
 <!DOCTYPE html>
@@ -19,6 +18,7 @@ if ($total_prod > $require) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShowProducts</title>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -31,27 +31,26 @@ if ($total_prod > $require) {
     <div class="row ml-4 ">
         <?php
 
-        foreach ($prod as $pd) {
+        foreach ($results as $pd) {
         ?>
-            <div class="card m-3" style="width: 22rem; height:auto;">
+            <div class="card m-3" style="width: 22rem;">
 
 
                 <div id="carouselExampleControls <?php $pd->id; ?>" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <?php $var = 0;
-
-
+                        $img = $this->User_model->imagesby($pd->id);
+                        //print_r($img);
                         foreach ($img as $im) {
-                            if ($im->prod_id == $pd->id) {
-                                print_r($im->prod_id);
+
+                            //print_r($im->prod_id);
                         ?>
-                                <div class="carousel-item <?php echo $var == 0 ? 'active' : '';
-                                                            ?>">
-                                    <img src="./assets/uploads/<?php echo $im->i_name;
-                                                                ?>" class="d-block w-100 card-img-top " height="250" width="150" alt="...">
-                                </div>
+                            <div class="carousel-item <?php echo $var == 0 ? 'active' : '';
+                                                        ?>">
+                                <img src="./assets/uploads/<?php echo $im->i_name;
+                                                            ?>" class="d-block w-100 card-img-top " height="250" width="150" alt="...">
+                            </div>
                         <?php $var++;
-                            }
                         }
                         ?>
                     </div>
@@ -64,8 +63,8 @@ if ($total_prod > $require) {
                 <div class="card-body">
                     <h1>
 
-                        <a href="showprod?id=<?php echo $pd->id
-                                                ?>">
+                        <a href="product?id=<?php echo $pd->id
+                                            ?>">
                             <?php echo $pd->name;
                             ?>
                         </a>
@@ -79,6 +78,12 @@ if ($total_prod > $require) {
                     <h5 class="card-text">Quantity:
                         <b class="h3"><?php echo $pd->quantity; ?></b>
                     </h5>
+                    <h6 class="card-text">Type:
+                        <b class=""><?php echo $pd->Prod_type; ?></b>
+                    </h6>
+                    <h6 class="card-text">sub Type:
+                        <b class=""><?php echo $pd->sub_name; ?></b>
+                    </h6>
 
                     <p class="card-text btn btn-danger card-link">
                         <a href="delprod?id=<?php echo $pd->id; ?>" class="btn">delete</a>
@@ -103,31 +108,13 @@ if ($total_prod > $require) {
         <!-- end -->
 
     </div>
-    <!-- <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
+    <nav aria-label="">
+        <ul class="pagination_links">
             <?php
-            // if ($page_no > 1) {
+            echo $links;
             ?>
-                <a class="page-link" href="showprod?page_no= <?php //echo $previous_page;
-                                                                //   
-                                                                ?>">previous</a>
-            <? //php //}
-
-            ?>
-            <?php ////
-            //if ($total_no_of_pages > $page_no) {
-            ?>
-                <a class="page-link" href="showprod?page_no= <?php //echo $next_page;
-                                                                //   
-                                                                ?>">Next</a>
-            <?php // }
-            //      
-            ?>
-
-
-
         </ul>
-    </nav> -->
+    </nav>
 </body>
 
 

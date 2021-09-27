@@ -61,16 +61,35 @@ class User_model extends CI_Model
         $this->db->insert('images', $data);
         return true;
     }
-    public function showprod()
+    // $data['prod'] = $this->User_model->showprod($config['per_page'], $page);
+    public function showprod($limit, $start)
     {
-        $data = $this->db->query('SELECT product.id, product.name, product.desc_prod, product.quantity, product.price, type.Prod_type, subtype.sub_name FROM product left join `subtype` on product.sub_id = subtype.id LEFT JOIN type on type.id = product.type_id ');
-
-
-        $res = $data->result();
+        // $limits = array('$limit' => '$limit', '$offset' => '$start');
+        // $this->db->limit($limit, $start);
+        // $query = $this->db->limit($limit, $start)->query("SELECT product.id, product.name, product.desc_prod, product.quantity, product.price, type.Prod_type, subtype.sub_name FROM product left join `subtype` on product.sub_id = subtype.id LEFT JOIN type on type.id = product.type_id $limits ");
+        // $res = $data->result();
         // $image = $this->db->query('SELECT images.i_name, product.id from images left join product on product.id = images.prod_id ');
         // $images = $image->result();
 
-        return $res;
+        // return $res;
+
+
+        $this->db->select("product.id, product.name, product.desc_prod, product.quantity, product.price, type.Prod_type, subtype.sub_name");
+        $this->db->from("product");
+        $this->db->join('type', 'type.id = product.type_id', 'left');
+        $this->db->join('subtype', 'product.sub_id = subtype.id', 'left');
+        $this->db->limit($limit, $start);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            foreach ($query->result() as $row) {
+                $data[] = $row;
+            }
+
+            return $data;
+        }
+
+        return false;
     }
     public function images()
     {
@@ -89,5 +108,19 @@ class User_model extends CI_Model
     public function totalprod()
     {
         return $this->db->count_all('product');
+    }
+    public function showproduct($id)
+    {
+
+        $data = $this->db->query("SELECT product.name, product.desc_prod, product.quantity, product.price, type.Prod_type, subtype.sub_name FROM product left join `subtype` on product.sub_id = subtype.id LEFT JOIN type on type.id = product.type_id where product.id='$id'");
+
+
+        return $data->result();
+    }
+    public function imagesby($id)
+    {
+        $image = $this->db->query("SELECT i_name from images  where prod_id = '$id'");
+        $images = $image->result();
+        return $images;
     }
 }

@@ -62,8 +62,13 @@ $route['aptype'] = 'Addtype/atype';
 $route['astype'] = 'Addtype/astype';
 $route['Addprod'] = 'Addproduct';
 $route['addprodctsin'] = 'Addproduct/addproductin';
+// $route['showprod'] = 'Show';
+$route['product'] = 'Show/showpro';
 $route['singout'] = 'Singout';
-$route['showprod'] = 'Show';
+
+// $route['authors/(:num)'] = 'authors';
+
 $route['delprod'] = 'Show/deletedata';
+$route['email'] = 'Email';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

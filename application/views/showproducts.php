@@ -108,8 +108,8 @@ $this->load->view('nav');
         <!-- end -->
 
     </div>
-    <nav aria-label="">
-        <ul class="pagination_links">
+    <nav aria-label="justify-content-center flex">
+        <ul class="d-flex">
             <?php
             echo $links;
             ?>

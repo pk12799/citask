@@ -17,7 +17,7 @@ $this->load->view('nav');
 
         <div class="form-group">
             <h3>Compose new Mails</h3>
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" action="emailsend" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="to">To:</label>
                     <input name="to" type="text" class="form-control" placeholder="To">

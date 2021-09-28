@@ -6,8 +6,8 @@ class Addproduct extends CI_Controller
     public function index()
     {
 
-        $ptype['sub'] = $this->User_model->get_type('type');
-        $type['type'] = $this->User_model->get_type('subtype');
+        $ptype['type'] = $this->User_model->get_type('type');
+        $type['sub'] = $this->User_model->get_type('subtype');
 
         $data['ptype'] = $ptype;
         $data['type'] = $type;

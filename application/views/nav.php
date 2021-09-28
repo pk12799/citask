@@ -263,7 +263,7 @@
 
 
                         <li class="nav-item">
-                            <a href="emailsend.php" class="nav-link">
+                            <a href="<?php echo base_url('email') ?>" class="nav-link">
                                 <i class="nav-icon far fa-envelope"></i>
                                 <p>
                                     Mailbox

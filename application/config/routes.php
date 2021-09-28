@@ -62,7 +62,7 @@ $route['aptype'] = 'Addtype/atype';
 $route['astype'] = 'Addtype/astype';
 $route['Addprod'] = 'Addproduct';
 $route['addprodctsin'] = 'Addproduct/addproductin';
-// $route['showprod'] = 'Show';
+$route['showprod'] = 'Show';
 $route['product'] = 'Show/showpro';
 $route['singout'] = 'Singout';
 
@@ -70,5 +70,6 @@ $route['singout'] = 'Singout';
 
 $route['delprod'] = 'Show/deletedata';
 $route['email'] = 'Email';
+$route['emailsend'] = 'Email/sendemail';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

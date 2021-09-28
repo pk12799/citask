@@ -26,9 +26,10 @@ class Login extends CI_Controller
                 $this->session->set_flashdata('error', "NO user found");
                 redirect(base_url('login'));
             }
-            print_r(password_hash($pass, PASSWORD_DEFAULT));
-            print_r($checkUser->password);
-
+            // print_r(password_hash($pass, PASSWORD_DEFAULT));
+            // echo '<pre>';
+            // print_r($checkUser->password);
+            // exit;
             //print_r(password_hash($pass, PASSWORD_DEFAULT));
             if (!password_verify($pass, $checkUser->password)) {
                 $this->session->set_flashdata('error', "Invalid password or email");

@@ -37,7 +37,7 @@ $this->load->view('nav');
                 <div class="form-group">
                     <select class="selectpicker form-control" name="type_id">
                         <option value=""> Select Product Type </option>
-                        <?php foreach ($ptype['sub'] as $s) {
+                        <?php foreach ($ptype['type'] as $s) {
                         ?>
                             <option value="<?php echo $s->id; ?>"><?php echo $s->Prod_type; ?></option>
                         <?php } ?>
@@ -46,7 +46,7 @@ $this->load->view('nav');
                 <div class="form-group">
                     <select class="selectpicker form-control" name="sub_id">
                         <option value=""> Select Product sub Type </option>
-                        <?php foreach ($type['type'] as $p) {
+                        <?php foreach ($type['sub'] as $p) {
                         ?>
                             <option value="<?php echo $p->id; ?>"><?php echo $p->sub_name; ?></option>
                         <?php } ?>

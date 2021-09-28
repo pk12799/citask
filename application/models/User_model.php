@@ -13,6 +13,8 @@ class User_model extends CI_Model
         $userInfo = $this->db->where('username', $data['username'])->get('users')->row();
         if (!empty($userInfo)) {
             return $userInfo;
+
+            
         } else {
             return false;
         }
@@ -33,12 +35,9 @@ class User_model extends CI_Model
         return $data->result();
     }
 
-    public function get_subtype()
+    public function get_subtype($id)
     {
-        return  $this->db->select('subtype.*,type.Prod_type as typeName')
-            ->from('subtype')
-            ->join('type', 'type.id = subtype.type_id', 'left')
-            ->get()->result();
+        return $this->db->query("select sub_name from subtype where type_id='$id")->result();
     }
     //delete the type 
     public function deletedata($tb, $id)

@@ -30,8 +30,8 @@ class Addtype extends CI_Controller
     public function showsub()
     {
 
-
-        $data['type'] = $this->User_model->get_subtype();
+        $data['type'] = $this->User_model->get_type('type');
+        $data['sub'] = $this->User_model->get_subtype();
 
         $this->load->view('addsubtype', $data);
     }

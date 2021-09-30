@@ -90,13 +90,12 @@ $this->load->view('nav');
                     </p>
                     <span class="span">
                         <p class=" btn btn-primary">
-                            <a href="update.php?id=<?php echo $pd->id;
-                                                    ?>" class="btn text-light">update</a>
+                            <a href="<?= base_url('updte') ?>?id=<?php echo $pd->id;
+                                                                    ?>" class="btn text-light">update</a>
                         </p>
                     </span>
                     <p class=" ">
-                        <a href="invoice.php?id=<?php echo $pd->id
-                                                ?>" class="">invoice</a>
+                        <a href="<?= base_url("invoice?id=$pd->id"); ?>" class="">invoice</a>
                     </p>
                 </div>
             </div>

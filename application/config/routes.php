@@ -67,9 +67,12 @@ $route['product'] = 'Show/showpro';
 $route['singout'] = 'Singout';
 
 // $route['authors/(:num)'] = 'authors';
-
+$route['updte'] = 'Updatepro';
+$route['updateproduct'] = 'Updatepro/updateproduct';
 $route['delprod'] = 'Show/deletedata';
 $route['email'] = 'Email';
+$route['subty'] = 'Addproduct/addproductsub';
 $route['emailsend'] = 'Email/sendemail';
+$route['invoice'] = 'Invoice';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

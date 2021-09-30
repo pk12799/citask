@@ -13,8 +13,6 @@ class User_model extends CI_Model
         $userInfo = $this->db->where('username', $data['username'])->get('users')->row();
         if (!empty($userInfo)) {
             return $userInfo;
-
-            
         } else {
             return false;
         }
@@ -35,9 +33,13 @@ class User_model extends CI_Model
         return $data->result();
     }
 
-    public function get_subtype($id)
+    public function get_subtype()
     {
-        return $this->db->query("select sub_name from subtype where type_id='$id")->result();
+        $this->db->select('subtype.sub_name , subtype.id ,type.Prod_type');
+        $r = $this->db->from('subtype')->join('type', 'type.id=subtype.type_id', 'left')->get()->result();
+        return $r;
+
+        // return $this->db->query("select sub_name from subtype where type_id='$id")->result();
     }
     //delete the type 
     public function deletedata($tb, $id)
@@ -110,16 +112,28 @@ class User_model extends CI_Model
     }
     public function showproduct($id)
     {
-
-        $data = $this->db->query("SELECT product.name, product.desc_prod, product.quantity, product.price, type.Prod_type, subtype.sub_name FROM product left join `subtype` on product.sub_id = subtype.id LEFT JOIN type on type.id = product.type_id where product.id='$id'");
-
-
-        return $data->result();
+        $query = $this->db->select('product.*,type.Prod_type,subtype.sub_name')
+            ->from('product')
+            ->join('type', 'type.id = product.type_id', 'left')
+            ->join('subtype', 'subtype.id = product.sub_id', 'left')
+            ->where('product.id', $id)
+            ->get();
+        return $query->row();
     }
     public function imagesby($id)
     {
         $image = $this->db->query("SELECT i_name from images  where prod_id = '$id'");
         $images = $image->result();
         return $images;
+    }
+    public function updateproducts($data, $id)
+    {
+        return $this->db->where('id', $id)->update('product', $data);
+    }
+    public function get_subtypes($tb, $id)
+    {
+        $this->db->where('type_id', $id);
+        $res = $this->db->get($tb)->result();
+        return $res;
     }
 }

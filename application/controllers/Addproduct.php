@@ -7,10 +7,10 @@ class Addproduct extends CI_Controller
     {
 
         $ptype['type'] = $this->User_model->get_type('type');
-        $type['sub'] = $this->User_model->get_type('subtype');
+        //$type['sub'] = $this->User_model->get_type('subtype');
 
         $data['ptype'] = $ptype;
-        $data['type'] = $type;
+
         $this->load->view('addproduct', $data);
     }
     //Add Products
@@ -67,6 +67,17 @@ class Addproduct extends CI_Controller
             }
             //redirect to addproduct page
             redirect(base_url('Addprod'));
+        }
+    }
+    public function addproductsub()
+    {
+        header('Content-Type: application/json');
+        $id = $this->input->post('id');
+
+
+        if ($id) {
+            $data =  $this->User_model->get_subtypes('subtype', $id);
+            echo json_encode($data);
         }
     }
 }

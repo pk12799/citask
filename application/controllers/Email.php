@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+use Dompdf\Dompdf;
+
 class Email extends CI_Controller
 {
     //Show admin dashboard
@@ -38,12 +40,12 @@ class Email extends CI_Controller
 
             $this->email->initialize($config);
             //  $this->load->library('email');
-
+            // $this->load->helper('helper_cous');
             $this->email->from('parvezkhan12799@gmail.com', 'parvez khan');
 
             $this->email->to($to);
             $this->email->subject($sub);
-
+            // dd($to);
             $this->email->message($desc);
             // $temp = $_FILES["upload"]["tmp_name"];
             // $fil = $_FILES["upload"]["name"];

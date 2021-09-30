@@ -35,7 +35,7 @@ $this->load->view('nav');
                 </div>
 
                 <div class="form-group">
-                    <select class="selectpicker form-control" name="type_id">
+                    <select id="type_id" class="selectpicker form-control" name="type_id">
                         <option value=""> Select Product Type </option>
                         <?php foreach ($ptype['type'] as $s) {
                         ?>
@@ -44,12 +44,9 @@ $this->load->view('nav');
                     </select>
                 </div>
                 <div class="form-group">
-                    <select class="selectpicker form-control" name="sub_id">
+                    <select class="selectpicker form-control" id="sub_id" name="sub_id">
                         <option value=""> Select Product sub Type </option>
-                        <?php foreach ($type['sub'] as $p) {
-                        ?>
-                            <option value="<?php echo $p->id; ?>"><?php echo $p->sub_name; ?></option>
-                        <?php } ?>
+
                     </select>
                 </div>
         </div>
@@ -101,6 +98,35 @@ $this->load->view('nav');
             });
         });
     </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#type_id').change(function() {
+                // var id = document.getElementById('#type');
+                // alert(id);
+                var id = $('#type_id').val();
+                if (id != '') {
+                    $.ajax({
+                        method: "POST",
+                        url: '<?php echo base_url('subty') ?>',
+                        data: {
+                            id: id
+                        },
+                        success: function(res) {
+                            let html = `<option value= "">select sub type</option>`;
+                            $.each(res, function(index, value) {
+                                html += `<option value="${value.id}">${value.sub_name}</option>`;
+                            });
+                            console.log(html, 'htmlhtmlhtmlhtmlhtml')
+                            $('#sub_id').html(html);
+                        }
+                    });
+                } else {
+                    $('#sub_id').html('<option value="">select type first</option>');
+                }
+            })
+        });
+    </script>
+
 </body>
 
 

@@ -6,6 +6,7 @@ class Login extends CI_Controller
     public function index()
     {
         //htis->load->library('form_validation');
+
         $this->load->view('login');
     }
 
@@ -40,6 +41,9 @@ class Login extends CI_Controller
 
             $this->session->set_flashdata('success', "Success");
             redirect(base_url('dashboard'));
+        } else {
+            $this->session->set_flashdata('error', "please fill");
+            redirect(base_url('/'));
         }
     }
 }

@@ -61,6 +61,7 @@ $this->load->view('nav');
                         <th scope="col">ID</th>
                         <th scope="col">Name</th>
                         <th scope="col">Type</th>
+                        <th scope="col">delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -72,6 +73,7 @@ $this->load->view('nav');
                             <td scope='row '> <?php echo $tp->id;  ?></td>
                             <td scope='row'><?php echo $tp->sub_name;  ?> </td>
                             <td scope='row'><?php echo $tp->Prod_type;  ?> </td>
+                            <td scope="row"><a href="delsub?id=<?php echo $tp->id; ?>">delete</td>
                         </tr>
                     <?php } ?>
 

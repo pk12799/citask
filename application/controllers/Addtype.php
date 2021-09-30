@@ -95,4 +95,18 @@ class Addtype extends CI_Controller
         $data['type'] = $type;
         $this->load->view('addproduct', $data);
     }
+    public function deletesubdata()
+    {
+
+        $id = $this->input->get('id');
+
+        $res = $this->User_model->deletedata('subtype', $id);
+
+        if ($res) {
+            redirect(base_url('addsubtype'));
+        } else {
+            $this->session->set_flashdata('error', 'this can not be delete');
+            redirect(base_url('addsubtype'));
+        }
+    }
 }

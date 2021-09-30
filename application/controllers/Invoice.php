@@ -11,6 +11,9 @@ class Invoice extends CI_Controller
     public function index()
     // {public function showpro()
     {
+        if ($this->session->login != TRUE) {
+            redirect(base_url());
+        }
         $id = $this->input->get('id');
         // dd($id);
         $data = $this->User_model->showproduct($id);

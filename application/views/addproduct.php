@@ -1,4 +1,7 @@
 <?php
+if ($this->session->login != TRUE) {
+    redirect(base_url());
+}
 $this->load->view('nav');
 ?>
 

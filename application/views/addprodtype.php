@@ -13,6 +13,10 @@
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Add Product Type</title>
+     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+
+     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+
  </head>
 
  <body class="hold-transition sidebar-mini layout-fixed">
@@ -45,7 +49,7 @@
      </div>
 
 
-     <table class="table ml-3">
+     <table id="table_id" class="table ml-3 mt-4">
          <thead>
              <tr>
                  <th scope="col">ID</th>
@@ -56,21 +60,39 @@
              </tr>
          </thead>
          <tbody>
-
-             <?php foreach ($type as $tp) { ?>
+             <!-- 
+             <?php //foreach ($type as $tp) { 
+                ?>
                  <tr class=''>
-                     <td scope='row '> <?php echo $tp->id;  ?></td>
-                     <td scope='row'><?php echo $tp->Prod_type;  ?> </td>
-                     <td scope="row"><a href="deldata?id=<?php echo $tp->id; ?>">delete</td>
+                     <td scope='row '> <?php // echo $tp->id;  
+                                        ?></td>
+                     <td scope='row'><?php //echo $tp->Prod_type;  
+                                        ?> </td>
+                     <td scope="row"><a href="deldata?id=<?php //echo $tp->id; 
+                                                            ?>">delete</td>
                  </tr>
                  </tr>
-             <?php } ?>
+             <?php //} 
+                ?> -->
 
          </tbody>
      </table>
      </div>
-
-
+     <script type="text/javascript" src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
+     <script>
+         $(document).ready(function() {
+             var data;
+             var table = $('#table_id').DataTable({
+                 serverSide: true,
+                 processing: true,
+                 "ajax ": {
+                     url: <? base_url('datatable') ?>,
+                     type: 'get',
+                     data: <? base_url('datatable') ?>
+                 }
+             });
+         });
+     </script>
  </body>
 
  </html>

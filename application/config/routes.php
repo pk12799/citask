@@ -66,7 +66,7 @@ $route['addprodctsin'] = 'Addproduct/addproductin';
 $route['showprod'] = 'Show';
 $route['product'] = 'Show/showpro';
 $route['singout'] = 'Singout';
-
+$route['datatable'] = "Datatable";
 // $route['authors/(:num)'] = 'authors';
 $route['updte'] = 'Updatepro';
 $route['updateproduct'] = 'Updatepro/updateproduct';

@@ -54,6 +54,7 @@ $route['getUser'] = 'Login/getUser';
 $route['welcome'] = 'Welcome';
 $route['insert_data'] = 'Welcome/insert_data';
 $route['dashboard'] = 'Dashboard';
+$route['dash'] = 'Dashboard';
 $route['addtype'] = 'Addtype/showsub';
 $route['atype'] = 'Addtype';
 

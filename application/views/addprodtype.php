@@ -45,7 +45,7 @@
      </div>
 
 
-     <table class="table">
+     <table class="table ml-3">
          <thead>
              <tr>
                  <th scope="col">ID</th>

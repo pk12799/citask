@@ -29,33 +29,34 @@ $this->load->view('nav');
                 echo ("<div class='alert alert-success'>" . $this->session->flashdata('success') . "</div>");
             }
             ?> </p>
-        <form method="post" action="astype" class="row">
-            <div class="form-group">
-                <select class="selectpicker form-control" name="type_id">
+        <div class="container">
+            <form method="post" action="astype" class="row">
+                <div class="form-group ml-3">
+                    <select class="selectpicker form-control" name="type_id">
 
-                    <option value=""> Select Product Type </option>
-                    <?php foreach ($type as $s) {
-                    ?>
-                        <option value="<?php echo $s->id; ?>"><?php echo $s->Prod_type; ?></option>
-                    <?php } ?>
-                </select>
+                        <option value=""> Select Product Type </option>
+                        <?php foreach ($type as $s) {
+                        ?>
+                            <option value="<?php echo $s->id; ?>"><?php echo $s->Prod_type; ?></option>
+                        <?php } ?>
+                    </select>
+
+                </div>
+        </div>
+        <div class="col-md-10 col-6 ml-2">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Product Sub Type" name="sub_name">
 
             </div>
-    </div>
-    <div class="col-md-10 col-12">
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Product Sub Type" name="sub_name">
-
+            <div class="col-sm-10  col-md-6">
+                <button type="submit" name="Addtype" class="btn btn-primary btn-block">Add Product sub Type</button>
+            </div>
         </div>
-        <div class="col-4">
-            <button type="submit" name="Addtype" class="btn btn-primary btn-block">Add Product sub Type</button>
-        </div>
+        </form>
     </div>
-    </form>
-
     <div class="container">
         <div class=" ">
-            <table class="table">
+            <table class="table ml-3">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>

@@ -33,10 +33,10 @@ class User_model extends CI_Model
         return $data->result();
     }
 
-    public function get_subtype()
+    public function get_subtype($start, $limit)
     {
         $this->db->select('subtype.sub_name , subtype.id ,type.Prod_type');
-        $r = $this->db->from('subtype')->join('type', 'type.id=subtype.type_id', 'left')->get()->result();
+        $r = $this->db->from('subtype')->join('type', 'type.id=subtype.type_id', 'left')->limit($limit, $start)->get()->result();
         return $r;
 
         // return $this->db->query("select sub_name from subtype where type_id='$id")->result();

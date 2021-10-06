@@ -60,20 +60,21 @@
              </tr>
          </thead>
          <tbody>
-             <!-- 
-             <?php //foreach ($type as $tp) { 
+
+             <?php foreach ($type as $tp) {
                 ?>
                  <tr class=''>
-                     <td scope='row '> <?php // echo $tp->id;  
+                     <td scope='row '> <?php echo $tp->id;
+                                        // 
                                         ?></td>
-                     <td scope='row'><?php //echo $tp->Prod_type;  
+                     <td scope='row'><?php echo $tp->Prod_type;
                                         ?> </td>
-                     <td scope="row"><a href="deldata?id=<?php //echo $tp->id; 
+                     <td scope="row"><a href="deldata?id=<?php echo $tp->id;
                                                             ?>">delete</td>
                  </tr>
                  </tr>
-             <?php //} 
-                ?> -->
+             <?php }
+                ?>
 
          </tbody>
      </table>
@@ -81,15 +82,8 @@
      <script type="text/javascript" src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
      <script>
          $(document).ready(function() {
-             var data;
-             var table = $('#table_id').DataTable({
-                 serverSide: true,
-                 processing: true,
-                 "ajax ": {
-                     url: <? base_url('datatable') ?>,
-                     type: 'get',
-                     data: <? base_url('datatable') ?>
-                 }
+             $('#table_id').DataTable({
+
              });
          });
      </script>

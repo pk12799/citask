@@ -14,6 +14,7 @@ $this->load->view('nav');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Product Type</title>
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -54,37 +55,45 @@ $this->load->view('nav');
         </div>
         </form>
     </div>
-    <div class="container">
+    <div class="container mt-4">
         <div class=" ">
-            <table class="table ml-3">
+            <table id="table" class="table ml-3">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">delete</th>
+                        <th id="id">ID</th>
+                        <th id="sub_name">Name</th>
+                        <th id="Prod_type">Type</th>
+
                     </tr>
                 </thead>
                 <tbody>
 
-                    <?php
-                    // dd($type);
-                    foreach ($sub as $tp) { ?>
-                        <tr class=''>
-                            <td scope='row '> <?php echo $tp->id;  ?></td>
-                            <td scope='row'><?php echo $tp->sub_name;  ?> </td>
-                            <td scope='row'><?php echo $tp->Prod_type;  ?> </td>
-                            <td scope="row"><a href="delsub?id=<?php echo $tp->id; ?>">delete</td>
-                        </tr>
-                    <?php } ?>
 
                 </tbody>
                 </tab>
         </div>
     </div>
     </div>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var data;
+            var table = $('#table').DataTable({
+                "serverSide": true,
+                "processing": true,
+                "ajax": {
+                    url: "<?= base_url('datatable'); ?>",
+                    type: "GET",
+                    data: "<?= base_url('datatable'); ?>"
+                }
+
+            });
 
 
+        });
+    </script>
 </body>
 
 </html>

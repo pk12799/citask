@@ -119,7 +119,7 @@ $this->load->view('nav');
                             $.each(res, function(index, value) {
                                 html += `<option value="${value.id}">${value.sub_name}</option>`;
                             });
-                            console.log(html, 'htmlhtmlhtmlhtmlhtml')
+                            // console.log(html, 'htmlhtmlhtmlhtmlhtml')
                             $('#sub_id').html(html);
                         }
                     });
